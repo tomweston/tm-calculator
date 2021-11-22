@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -37,9 +38,21 @@ func RandomHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params
 	urlParams := r.URL.Query()
-	json_num, ok1 := urlParams["num"]
-	if !ok1 {
-		log.Errorf("No params found")
+	json_num, ok := urlParams["num"]
+	if !ok {
+		log.Infoln("No params found, sending 10 random numbers")
+
+		// TODO: send 10 random numbers
+		json_num := []string{"10"}
+		json_num_string := strings.Join(json_num, " ")
+		if defaultNum, err := strconv.Atoi(json_num_string); err == nil {
+			for i := 0; i < defaultNum; i++ {
+				result := IntRandom()
+				w.Header().Set("Content-Type", "application/json")
+				w.Header().Set("Access-Control-Allow-Origin", "*")
+				json.NewEncoder(w).Encode(result)
+			}
+		}
 	}
 	num, err1 := strconv.ParseInt(json_num[0], 10, 64)
 	if err1 != nil {
@@ -55,15 +68,9 @@ func RandomHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Write Response
 	intNum := int(num)
-	if num != 0 {
-		for i := 0; i < intNum; i++ {
-			result := IntRandom()
-			json.NewEncoder(w).Encode(result)
-		}
-	} else {
-		for i := 0; i < 10; i++ {
-			result := IntRandom()
-			json.NewEncoder(w).Encode(result)
-		}
+
+	for i := 0; i < intNum; i++ {
+		result := IntRandom()
+		json.NewEncoder(w).Encode(result)
 	}
 }
