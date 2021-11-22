@@ -4,8 +4,15 @@ A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kub
 
 [Postman Collection](postman_collection.json)
 
-## Build & Run with Docker
+## Testing
+
+```sh
+go test -v ./...
 ```
+
+## Build & Run with Docker
+
+```sh
 docker build -t tm-calculator .
 ```
 ```
@@ -13,12 +20,15 @@ docker run -d -p 5555:5555 tm-calculator
 ```
 
 ## Local Install
-```
+
+```sh
 go build
 ```
-```
+```sh
 ./tm-calculator
 ```
+
+---
 
 ## Prometheus Metrics
 
@@ -26,13 +36,15 @@ go build
 
 ### Useful Metrics
 
-`processed_adds_total`
+`processed_adds_total` - The total number of processed add events
 
-`processed_subtracts_total`
+`processed_subtracts_total` - The total number of processed subtraction events
 
-`processed_division_total`
+`processed_division_total` - The total number of processed division events
 
-`processed_random_total`
+`processed_random_total` - The total number of processed random events
+
+---
 
 ## Kubernetes
 
@@ -40,7 +52,7 @@ go build
 
 **NOTE: This deploys by default the public tomweston/tm-calculator:latest image**
 
-```
+```sh
 kubectl apply -f manifest.yml
 ```
 
@@ -48,6 +60,8 @@ kubectl apply -f manifest.yml
 
 **NOTE: Binds to 9000 so as not to be confused with local service**
 
-```
+```sh
 kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 9000:5555
 ```
+
+### TODO: Add default return of 10 random numbers if count is not provided
