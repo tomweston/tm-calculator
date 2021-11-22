@@ -1,0 +1,58 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: tm-calculator
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tm-calculator-ingress
+  namespace: tm-calculator
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /
+          backend:
+            serviceName: tm-calculator-service
+            servicePort: 5555
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tm-calculator-service
+  namespace: tm-calculator
+spec:
+  selector:
+    app: tm-calculator
+  ports:
+    - port: 5555
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tm-calculator-deployment
+  namespace: tm-calculator
+  labels:
+    app: tm-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tm-calculator
+  template:
+    metadata:
+      labels:
+        app: tm-calculator
+    spec:
+      containers:
+      - name: tm-calculator
+        image: "tomweston/tm-calculator:latest"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 5555
