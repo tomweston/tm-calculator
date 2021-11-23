@@ -81,15 +81,11 @@ go build
 
 ### Deploy
 
-**NOTE: This deploys by default the public tomweston/tm-calculator:latest image**
-
 ```sh
 kubectl apply -f manifest.yml
 ```
 
 ### Port Forward
-
-**NOTE: Binds to 9000 so as not to be confused with local service**
 
 ```sh
 kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:5555
