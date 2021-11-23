@@ -4,6 +4,20 @@ A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kub
 
 [Postman Collection](postman_collection.json)
 
+## Deploying the tm-calculator API
+
+To deploy it, run the following command:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/tomweston/tm-calculator/master/manifest.yml
+```
+
+## Accessing the tm-calculator API
+
+```sh
+kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:5555
+```
+
 ## Testing
 
 ```sh
