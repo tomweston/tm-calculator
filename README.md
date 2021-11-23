@@ -4,6 +4,20 @@ A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kub
 
 [API V1 Postman Collection](v1_postman_collection.json)
 
+## Example Calls
+
+- GET defaults count of 10 random numbers: `curl http://localhost:5555/api/v1/random`
+- GET 10 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
+- GET - Add 20 to 10: `curl http://localhost:9000/api/v1/add?num1=20&num2=10`
+- GET - Subtract 5 from 10: `curl http://localhost:5555/api/v1/subtract?num1=10&num2=5`
+- GET - Divide 10 by 2: `curl http://localhost:5555/api/v1/division?num1=10&num2=2`
+
+## Health
+
+- GET - Readiness: `curl http://localhost:5555/readiness`
+- GET - Liveness: `curl http://localhost:5555/liveness`
+
+  
 ## Deploying the tm-calculator API to Kubernetes
 
 To deploy it, run the following command:
@@ -75,7 +89,5 @@ kubectl apply -f manifest.yml
 **NOTE: Binds to 9000 so as not to be confused with local service**
 
 ```sh
-kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 9000:5555
+kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:5555
 ```
-
-### TODO: Add default return of 10 random numbers if count is not provided
