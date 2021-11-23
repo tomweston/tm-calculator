@@ -1,10 +1,6 @@
 # tm-calculator ![Build](https://github.com/tomweston/tm-calculator/actions/workflows/go.yml/badge.svg)
 
 A Golang Calculator API built with Gorilla Mux Router and Prometheus Metrics ready to deploy to Kubernetes.
-
-## Examples
-
-[API V1 Postman Collection](example/v1_postman_collection.json)
   
 ## Deploying the tm-calculator API to Kubernetes
 
@@ -19,10 +15,9 @@ kubectl apply -f https://raw.githubusercontent.com/tomweston/tm-calculator/maste
 ```sh
 kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:5555
 ```
-
 ---
 
-## Example Calls
+## Examples
 
 - GET - 10 random numbers (if no num provided): `curl http://localhost:5555/api/v1/random`
 - GET - 100 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
@@ -34,6 +29,10 @@ kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:55
 
 - GET - Readiness: `curl http://localhost:5555/readiness`
 - GET - Liveness: `curl http://localhost:5555/liveness`
+
+### Collections
+
+[API V1 Postman Collection](example/v1_postman_collection.json)
 
 ---
 
