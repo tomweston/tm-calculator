@@ -3,20 +3,6 @@
 A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kubernetes.
 
 [API V1 Postman Collection](v1_postman_collection.json)
-
-## Example Calls
-
-- GET - 10 random numbers (if no num provided): `curl http://localhost:5555/api/v1/random`
-- GET - 100 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
-- GET - Add 20 to 10: `curl http://localhost:9000/api/v1/add?num1=20&num2=10`
-- GET - Subtract 5 from 10: `curl http://localhost:5555/api/v1/subtract?num1=10&num2=5`
-- GET - Divide 10 by 2: `curl http://localhost:5555/api/v1/division?num1=10&num2=2`
-
-## Health
-
-- GET - Readiness: `curl http://localhost:5555/readiness`
-- GET - Liveness: `curl http://localhost:5555/liveness`
-
   
 ## Deploying the tm-calculator API to Kubernetes
 
@@ -31,6 +17,23 @@ kubectl apply -f https://raw.githubusercontent.com/tomweston/tm-calculator/maste
 ```sh
 kubectl --namespace=tm-calculator port-forward svc/tm-calculator-service 5555:5555
 ```
+
+---
+
+## Example Calls
+
+- GET - 10 random numbers (if no num provided): `curl http://localhost:5555/api/v1/random`
+- GET - 100 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
+- GET - Add 20 to 10: `curl http://localhost:9000/api/v1/add?num1=20&num2=10`
+- GET - Subtract 5 from 10: `curl http://localhost:5555/api/v1/subtract?num1=10&num2=5`
+- GET - Divide 10 by 2: `curl http://localhost:5555/api/v1/division?num1=10&num2=2`
+
+## Health
+
+- GET - Readiness: `curl http://localhost:5555/readiness`
+- GET - Liveness: `curl http://localhost:5555/liveness`
+
+---
 
 ## Testing
 
