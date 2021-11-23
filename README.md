@@ -64,7 +64,7 @@ go build
 
 ## Prometheus Metrics
 
-[Metrics](http://127.0.0.1:5555/metrics)
+[Metrics](http://127.0.0.1:5555/metrics) `curl http://localhost:5555/metrics`
 
 ### Useful Metrics
 
