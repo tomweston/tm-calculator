@@ -1,8 +1,8 @@
 # tm-calculator
 
-![Docker](https://github.com/tomweston/tm-calculator/actions/workflows/docker/badge.svg)
+![Docker](https://github.com/tomweston/tm-calculator/actions/workflows/docker.yml/badge.svg)
 
-![Go](https://github.com/tomweston/tm-calculator/actions/workflows/go/badge.svg)
+![Go](https://github.com/tomweston/tm-calculator/actions/workflows/go.yml/badge.svg)
 
 A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kubernetes.
 
