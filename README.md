@@ -66,7 +66,7 @@ go build
 
 [Metrics](http://127.0.0.1:5555/metrics) `curl http://localhost:5555/metrics`
 
-### Useful Metrics
+### Included Metrics
 
 `processed_adds_total` - The total number of processed add events
 
