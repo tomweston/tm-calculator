@@ -27,12 +27,13 @@ func addMetrics() {
 	}()
 }
 
-// Function to add two numbers
+// IntAdd Adds two integers
 func IntAdd(a, b int64) int64 {
 	result := a + b
 	return result
 }
 
+// AddHandler handles the add request
 func AddHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params

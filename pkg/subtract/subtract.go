@@ -27,12 +27,13 @@ func subtractionMetrics() {
 	}()
 }
 
-// Function to subtract two numbers
+// IntSubtract subtracts two integers
 func IntSubtract(a, b int64) int64 {
 	result := a - b
 	return result
 }
 
+// SubtractHandler handles the subtract request
 func SubtractHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params

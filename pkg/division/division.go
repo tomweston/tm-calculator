@@ -27,12 +27,13 @@ func divisionMetrics() {
 	}()
 }
 
-// Function to divide two numbers
+// IntDivision divides two integers
 func IntDivision(a, b int64) int64 {
 	result := a / b
 	return result
 }
 
+// DivisionHandler handles the division request
 func DivisionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params
@@ -51,7 +52,7 @@ func DivisionHandler(w http.ResponseWriter, r *http.Request) {
 	// Calculate result
 	result := IntDivision(num1, num2)
 
-	// Increment processed division
+	// Increment processed divisions
 	divisionMetrics()
 
 	// Set Headers

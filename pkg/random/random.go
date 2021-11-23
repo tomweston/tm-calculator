@@ -28,11 +28,12 @@ func randomMetrics() {
 	}()
 }
 
-// Function to generate a defined set of random numbers
+// IntRandom generates a random integer
 func IntRandom() int {
 	return rand.Int()
 }
 
+// RandomHandler handles the random request
 func RandomHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params
