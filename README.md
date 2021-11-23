@@ -1,4 +1,4 @@
-# tm-calculator ![Build](https://github.com/tomweston/tm-calculator/actions/workflows/go.yml/badge.svg) ![Go Report Card](https://goreportcard.com/badge/github.com/tomweston/tm-calculator)(https://goreportcard.com/report/github.com/tomweston/tm-calculator) 
+# tm-calculator ![Build](https://github.com/tomweston/tm-calculator/actions/workflows/go.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/tomweston/tm-calculator)](https://goreportcard.com/report/github.com/tomweston/tm-calculator)
 
 A Golang Calculator API built with Gorilla Mux Router and Prometheus Metrics ready to deploy to Kubernetes.
   
