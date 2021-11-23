@@ -62,4 +62,7 @@ func RandomHandler(w http.ResponseWriter, r *http.Request) {
 		result := IntRandom()
 		json.NewEncoder(w).Encode(result)
 	}
+	log.WithFields(log.Fields{
+		"num": jsonNum,
+	}).Info("Random Request")
 }

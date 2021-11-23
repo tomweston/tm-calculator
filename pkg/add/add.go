@@ -61,4 +61,8 @@ func AddHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Write Response
 	json.NewEncoder(w).Encode(result)
+	log.WithFields(log.Fields{
+		"num1": jsonNum1,
+		"num2": jsonNum2,
+	}).Info("Add Request")
 }
