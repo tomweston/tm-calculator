@@ -6,8 +6,8 @@ A Golang API built with Mux Router and Prometheus Metrics ready to deploy to Kub
 
 ## Example Calls
 
-- GET defaults count of 10 random numbers: `curl http://localhost:5555/api/v1/random`
-- GET 10 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
+- GET - 10 random numbers (if no num provided): `curl http://localhost:5555/api/v1/random`
+- GET - 100 random numbers: `curl http://localhost:5555/api/v1/random?num=100`
 - GET - Add 20 to 10: `curl http://localhost:9000/api/v1/add?num1=20&num2=10`
 - GET - Subtract 5 from 10: `curl http://localhost:5555/api/v1/subtract?num1=10&num2=5`
 - GET - Divide 10 by 2: `curl http://localhost:5555/api/v1/division?num1=10&num2=2`
