@@ -53,20 +53,21 @@ func prometheusMiddleware(next http.Handler) http.Handler {
 	})
 }
 
+// IndexHandler	handles the root route
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "tm-calculator")
 }
 
+// Alive returns true if the server is alive
 func Alive() bool {
-	timeout := 1 * time.Second
-	_, err := net.DialTimeout("tcp", "127.0.0.1:"+port, timeout)
+	_, err := net.DialTimeout("tcp", "localhost:"+port, time.Second)
 	if err != nil {
-		log.Println("Site unreachable, error: ", err)
 		return false
 	}
 	return true
 }
 
+// LivenessHandler handles the liveness route
 func LivenessHandler(w http.ResponseWriter, r *http.Request) {
 	if Alive() == true {
 		w.WriteHeader(http.StatusOK)
@@ -79,12 +80,13 @@ func LivenessHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Ready returns true if the server is ready
 func Ready() bool {
 	return true
 }
 
+// ReadinessHandler handles the readiness route
 func ReadinessHandler(w http.ResponseWriter, r *http.Request) {
-
 	if Alive() == true && Ready() == true {
 		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "application/json")
@@ -94,7 +96,6 @@ func ReadinessHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		io.WriteString(w, `{"ready": false}`)
 	}
-
 }
 
 func handleRequests() {
