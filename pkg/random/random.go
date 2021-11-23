@@ -38,12 +38,12 @@ func RandomHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params
 	urlParams := r.URL.Query()
-	json_num, ok := urlParams["num"]
+	jsonNum, ok := urlParams["num"]
 	if !ok {
 		log.Infoln("No params found, sending 10 random numbers")
-		json_num = []string{"10"}
+		jsonNum = []string{"10"}
 	}
-	num, err1 := strconv.ParseInt(json_num[0], 10, 64)
+	num, err1 := strconv.ParseInt(jsonNum[0], 10, 64)
 	if err1 != nil {
 		log.Errorf("Could not parse provided value")
 	}
