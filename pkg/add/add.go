@@ -37,13 +37,13 @@ func AddHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get URL Params
 	urlParams := r.URL.Query()
-	json_num1, ok1 := urlParams["num1"]
-	json_num2, ok2 := urlParams["num2"]
+	jsonNum1, ok1 := urlParams["num1"]
+	jsonNum2, ok2 := urlParams["num2"]
 	if !ok1 || !ok2 {
 		log.Errorf("No params found")
 	}
-	num1, err1 := strconv.ParseInt(json_num1[0], 10, 64)
-	num2, err2 := strconv.ParseInt(json_num2[0], 10, 64)
+	num1, err1 := strconv.ParseInt(jsonNum1[0], 10, 64)
+	num2, err2 := strconv.ParseInt(jsonNum2[0], 10, 64)
 	if err1 != nil || err2 != nil {
 		log.Errorf("Could not parse provided values")
 	}
