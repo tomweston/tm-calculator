@@ -54,8 +54,7 @@ func prometheusMiddleware(next http.Handler) http.Handler {
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "tm-calculator Service")
-	log.Infoln("Incomming request %s %s %s %s", r.Method, r.RequestURI, r.RemoteAddr)
+	fmt.Fprintf(w, "tm-calculator")
 }
 
 func Alive() bool {
