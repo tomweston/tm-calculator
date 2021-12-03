@@ -52,7 +52,10 @@ spec:
         image: "tomweston/tm-calculator:latest"
         resources:
           requests:
-            cpu: 100m
-            memory: 100Mi
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 5555
