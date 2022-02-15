@@ -8,8 +8,6 @@ kind: Ingress
 metadata:
   name: tm-calculator-ingress
   namespace: tm-calculator
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
