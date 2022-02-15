@@ -9,15 +9,19 @@ metadata:
   name: tm-calculator-ingress
   namespace: tm-calculator
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx-example
   rules:
   - http:
       paths:
-        - path: /
-          backend:
-            serviceName: tm-calculator-service
-            servicePort: 5555
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tm-calculator-service
+            port:
+              number: 5555
 ---
 kind: Service
 apiVersion: v1
